@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Titanic Script</title>
+<meta name="viewport" content="width=device-width">
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+
+    <style>
+
+*{
+    font-family: 'Titillium Web', sans-serif;
+}
+
+a{
+    text-decoration:none;
+    font-size:100%;
+}
+
+a:hover{
+    color:blue;
+    border-color:grey;
+    text-decoration:none;
+    border-radius:25px 0 25px 0;
+}
+
+p{
+    font-size:150%;
+    padding:2%;
+    border-radius:0 0 25px 0;
+    border-style:solid;
+}
+
+div{
+text-align:center;
+padding-top:20vh;
+margin:auto;
+width:80%;
+}
+
+.homebutton{
+    position:relative;
+    border-radius:0 0 25px 0;
+    border-style:solid;
+    top:15px;
+    padding:1%;
+}
+
+table{
+display:none;
+text-align:center;
+}
+
+  </style>
+  </head>
+
+<body>
+
+<a class="homebutton" href="../" >Home</a>
+
+<div>
+    <p>
+        This script generates two .xlsx files named 'Removed_Every_Other_Column' and 'Reversed_Columns'.
+        <br> The first file is the Titanic Data Set with each other column removed. The latter
+        is the original data set with the columns in reverse order.
+    </p>
+</div>
+
+<div style="padding-top:5vh;">
+    <button onclick="showTable1()" >Reversed Columns</button>
+    <button onclick="showTable2()" >Removed Every Other Column</button>
+</div>
+
+<div>
+    {% for table in tables %}
+        {{ table|safe }}
+    {% endfor %}
+</div>
+
+<script>
+    document.getElementsByClassName("dataframe")[0].setAttribute("id", "table1");
+    document.getElementsByClassName("dataframe")[1].setAttribute("id", "table2");
+
+    var t1 = document.getElementById("table1");
+    var t2 = document.getElementById("table2");
+
+    function showTable1(){
+     t1.style.display = "block";
+     t2.style.display = "none";
+    }
+    function showTable2(){
+     t1.style.display = "none";
+     t2.style.display = "block";
+    }
+</script>
+
+  </body>
+</html>
